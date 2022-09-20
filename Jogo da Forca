@@ -8,7 +8,7 @@ namespace JogoDaForca
         {
             string palavra;  //variaveis
             int acerto = 0;
-           
+
 
 
             Console.WriteLine("Digite uma palavra"); //inicio do código
@@ -16,9 +16,9 @@ namespace JogoDaForca
 
             char[] caracteres = palavra.ToCharArray(); //arrays
             char[] forca = palavra.ToCharArray();
-            char[] digitados = palavra.ToCharArray();
+            char[] digitos = palavra.ToCharArray();
 
-            char digitos;
+            char letras;
 
             for (int i = 0; i < palavra.Length; i = i + 1) //vai pegar o numero de letras e transformar em espaços
             {
@@ -35,19 +35,10 @@ namespace JogoDaForca
 
             do
             {
-                Console.Write(" ________\n" +                  //forca
-                                      "|        |\n" +              
-                                      "|        |\n" +              
-                                      "|\n" +                        
-                                      "|\n" +
-                                      "|\n" +
-                                      "|\n" +
-                                      "|\n" +
-                                      "|\n\n");
 
                 Console.SetCursorPosition(2, Console.CursorTop); //vai mostrar os espaços 
 
-                for (int i = 0; i < palavra.Length; i = i + 1) 
+                for (int i = 0; i < palavra.Length; i = i + 1)
                 {
                     Console.Write(forca[i] + " ");
                 }
@@ -57,13 +48,13 @@ namespace JogoDaForca
 
                 for (int i = 0; i < palavra.Length; i = i + 1)
                 {
-                    if (digitos == forca[i])
+                    if (letras == forca[i])
                     {
                         escreva();
                     }
-                    else if (digitos == caracteres[i])
+                    else if (letras == caracteres[i])
                     {
-                        forca[i] = digitos;
+                        forca[i] = letras;
                         acerto++;
                     }
 
@@ -74,7 +65,7 @@ namespace JogoDaForca
                 void Letras() //otimização para mostrar quando o professor pode falar uma palavra
                 {
                     Console.WriteLine("\n\n Digite uma letra");
-                    digitos = Convert.ToChar(Console.Read());
+                    letras = Convert.ToChar(Console.Read());
                 }
 
                 void escreva() //otimização para mostrar letra já digitada
@@ -90,4 +81,4 @@ namespace JogoDaForca
 
         }
     }
- }
+}
