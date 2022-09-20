@@ -7,9 +7,7 @@ namespace JogoDaForca
         static void Main(string[] args)
         {
             string palavra;  //variaveis
-            int erro = 0;
             int acerto = 0;
-            int totalErros = 3;
            
 
 
