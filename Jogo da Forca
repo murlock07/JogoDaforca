@@ -1,0 +1,95 @@
+using System;
+
+namespace JogoDaForca
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string palavra;
+            int erro = 0;
+            int acerto = 0;
+            int totalErros = 3;
+           
+
+
+            Console.WriteLine("Digite uma palavra");
+            palavra = Console.ReadLine();
+
+            char[] caracteres = palavra.ToCharArray();
+            char[] forca = palavra.ToCharArray();
+            char[] digitados = palavra.ToCharArray();
+
+            char digitos;
+
+            for (int i = 0; i < palavra.Length; i = i + 1)
+            {
+                if (caracteres[i] == ' ')
+                {
+                    forca[i] = ' ';
+                }
+                else
+                {
+                    forca[i] = '_';
+                }
+            }
+            Console.Clear();
+
+            do
+            {
+                Console.Write(" ________\n" +
+                                      "|        |\n" +              
+                                      "|        |\n" +              
+                                      "|\n" +                        
+                                      "|\n" +
+                                      "|\n" +
+                                      "|\n" +
+                                      "|\n" +
+                                      "|\n\n");
+
+                Console.SetCursorPosition(2, Console.CursorTop);
+
+                for (int i = 0; i < palavra.Length; i = i + 1)
+                {
+                    Console.Write(forca[i] + " ");
+                }
+
+
+                Letras();
+
+                for (int i = 0; i < palavra.Length; i = i + 1)
+                {
+                    if (digitos == forca[i])
+                    {
+                        escreva();
+                    }
+                    else if (digitos == caracteres[i])
+                    {
+                        forca[i] = digitos;
+                        acerto++;
+                    }
+
+                }
+
+                Console.Clear();
+
+                void Letras()
+                {
+                    Console.WriteLine("\n\n Digite uma letra");
+                    digitos = Convert.ToChar(Console.Read());
+                }
+
+                void escreva()
+                {
+                    Console.WriteLine("\n Letra já digitada, aperta enter");
+                    Console.ReadKey();
+                }
+
+            } while (acerto < palavra.Length);
+            Console.Clear();
+
+            Console.WriteLine("Parabéns voccê ganhou");
+
+        }
+    }
+ }
